@@ -45,7 +45,7 @@ protoc -I/usr/local/include -I. \
   api.proto
 ```
 
-`api.pb.gw.go` gRPC geteway implementation.
+`api.pb.gw.go`: gRPC geteway implementation.
 
 To generate, under api package path:
 ```
@@ -57,7 +57,7 @@ protoc -I/usr/local/include -I. \
 	api.proto
 ```
 
-`api.swagger.json` REST API swagger definitions.
+`api.swagger.json`: REST API swagger definitions.
 
 To generate, under api package path:
 ```
