@@ -36,6 +36,8 @@ REST API Swagger documentation available at:
 # Developers guide
 This project uses [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) to generate both REST API and swagger configuration from protoc spec. 
 
+Notice: All development dependencies must be installed before running the following commands, more documantation can be found at: [grpc-gateway documentation](https://grpc-ecosystem.github.io/grpc-gateway/).
+
 All generated files are under the `api` package:
 
 `api.pb.go`: services and messages implementation. 
