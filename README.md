@@ -29,4 +29,45 @@ REST API Swagger documentation available at:
 `http://localhost:8081/swagger`
 
 # Developers guide
-TBD
+This project uses [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) to generate both REST API and swagger configuration from protoc spec. 
+
+All generated files are under the `api` package:
+
+`api.pb.go`: services and messages implementation. 
+
+To generate, under api package path:
+```
+protoc -I/usr/local/include -I. \
+  -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/ \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --go_out=plugins=grpc:. \
+  api.proto
+```
+
+`api.pb.gw.go` gRPC geteway implementation.
+
+To generate, under api package path:
+```
+protoc -I/usr/local/include -I. \
+  -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/ \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --grpc-gateway_out=logtostderr=true:. \
+	api.proto
+```
+
+`api.swagger.json` REST API swagger definitions.
+
+To generate, under api package path:
+```
+protoc -I/usr/local/include -I. \
+  -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/ \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --swagger_out=logtostderr=true:. \
+  api.proto	
+```
+
+
+
