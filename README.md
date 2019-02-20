@@ -9,17 +9,22 @@ Download the project and the project dependencies
 `go get github.com/romangurevitch/grpc-rest-go...`
 
 ## Testing the project:
-Run the following command:
+To build and test the project run `test_and_build.sh` script.
+
+Alternativley to test the project:
 
 `go test -v github.com/romangurevitch/grpc-rest-go/...`
-## Running the project:
-In the root project path:
 
-Running the server: 
+## Running the project:
+To run the project run `run.sh` script.
+
+Alternativley: 
+
+To run the the server: 
 
 `go run server/server.go`
 
-Running the client:
+To run the the client:
 
 `go run client/client.go`
 
