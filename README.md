@@ -13,9 +13,15 @@ Run the following command:
 
 `go test -v github.com/romangurevitch/grpc-rest-go/...`
 ## Running the project:
-In the root project path, run the following command:
+In the root project path:
 
-`go run server/server.go & go run client/client.go`
+Running the server: 
+
+`go run server/server.go`
+
+Running the client:
+
+`go run client/client.go`
 
 ## Documentation 
 REST API Swagger documentation available at:
