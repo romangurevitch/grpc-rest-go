@@ -34,6 +34,8 @@ func main() {
 	mux.Handle("/api/", gw)
 	mux.HandleFunc("/swagger/", serveSwagger)
 
+	log.Println("Starting HTTP client on port " + config.HttpPort)
+	log.Println("Swagger REST API documentation available at: " + "localhost" + config.HttpPort + "/swagger")
 	if err = http.ListenAndServe(config.HttpPort, mux); err != nil {
 		log.Fatal(err)
 	}
