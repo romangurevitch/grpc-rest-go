@@ -1,4 +1,4 @@
-# Simple gRPC server with REST API gateway written in Go.
+# Simple gRPC server with REST API gateway client written in Go.
 A simple client server project with gRPC communication and REST API client. 
 
 # Download and build the project  
