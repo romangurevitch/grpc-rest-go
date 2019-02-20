@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package api;
+
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    info: {
+      title: "grpc-rest-go";
+      version: "1.0";
+      contact: {
+        name: "grpc-rest-go";
+        url: "https://github.com/romangurevitch/grpc-rest-go";
+        email: "none@example.com";
+      };
+    };
+    schemes: HTTP;
+    schemes: HTTPS;
+    consumes: "application/json";
+    produces: "application/json";
+  };
+
+service DictionaryService {
+    // Find a word in the dictionary
+    rpc FindWord (Word) returns (FindWordRes) {
+        option (google.api.http) = {
+            get: "/api/v1/dictionary/find/{word}"
+          };
+    }
+
+    // Add a word to the dictionary
+    rpc AddWord (Word) returns (Result) {
+        option (google.api.http) = {
+            put: "/api/v1/dictionary/add/{word}"
+          };
+    }
+
+    // Delete a word from the dictionary
+    rpc DeleteWord (Word) returns (Result) {
+        option (google.api.http) = {
+            delete: "/api/v1/dictionary/delete/{word}"
+          };
+    }
+
+    // Get most popular words in the dictionary
+    rpc GetMostPopularWords (Empty) returns (GetMostPopularWordsRes) {
+        option (google.api.http) = {
+            get: "/api/v1/dictionary/popular"
+          };
+    }
+};
+
+message Word {
+    string word = 1;
+}
+
+message FindWordRes {
+    bool exist = 1;
+    Result result = 2;
+}
+
+message GetMostPopularWordsRes {
+    map<string, int64> words = 1;
+    Result result = 2;
+}
+
+message Empty {
+}
+
+message Result {
+    enum Status {
+        Success = 0;
+        Fail = 1;
+    }
+    Status status = 1;
+    string error = 2;
+}
