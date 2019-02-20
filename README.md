@@ -23,7 +23,7 @@ Running the client:
 
 `go run client/client.go`
 
-## Documentation 
+## REST API Documentation 
 REST API Swagger documentation available at:
 
 `http://localhost:8081/swagger`
